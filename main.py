@@ -5,6 +5,10 @@ pygame.init()
 window = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("Avoid the car")
 
+x = 400
+y = 300
+speed = 5
+
 open_window = True
 
 while open_window:
@@ -14,7 +18,19 @@ while open_window:
         if event.type == pygame.QUIT:
             open_window = False
 
-    pygame.draw.circle(window, (0, 255, 0), (400, 300), 50)
+    commands = pygame.key.get_pressed()
+
+    if commands[pygame.K_UP]:
+        y -= speed
+    if commands[pygame.K_DOWN]:
+        y += speed
+    if commands[pygame.K_RIGHT]:
+        x += speed
+    if commands[pygame.K_LEFT]:
+        x -= speed
+
+    window.fill((0,0,0))
+    pygame.draw.circle(window, (0, 255, 0), (x, y), 50)
     pygame.display.update()
 
 pygame.quit()
