@@ -7,9 +7,10 @@ pygame.display.set_caption("Avoid the car")
 
 x = 400
 y = 300
-speed = 5
+speed = 10
 
 background = pygame.image.load('venv/assets/images/background.png')
+car = pygame.image.load('venv/assets/images/car.png')
 
 open_window = True
 
@@ -32,8 +33,8 @@ while open_window:
         x -= speed
 
     window.blit(background, (0, 0))
+    window.blit(car, (x, y))
 
-    pygame.draw.circle(window, (0, 255, 0), (x, y), 50)
     pygame.display.update()
 
 pygame.quit()
