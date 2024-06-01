@@ -9,6 +9,8 @@ x = 400
 y = 300
 speed = 5
 
+background = pygame.image.load('venv/assets/images/background.png')
+
 open_window = True
 
 while open_window:
@@ -29,7 +31,8 @@ while open_window:
     if commands[pygame.K_LEFT]:
         x -= speed
 
-    window.fill((0,0,0))
+    window.blit(background, (0, 0))
+
     pygame.draw.circle(window, (0, 255, 0), (x, y), 50)
     pygame.display.update()
 
